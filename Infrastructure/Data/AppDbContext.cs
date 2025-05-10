@@ -20,8 +20,11 @@ public class AppDbContext : DbContext, IStudentRepository
     public void Remove(Student student)
         => Students.Remove(student);
 
-    public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-        => await base.SaveChangesAsync(cancellationToken);
+    public  async Task<int> SaveChangesAsync()
+    {
+        return await base.SaveChangesAsync(default);
+    }
+
     // Dispose pattern provided by DbContext
     public void Dispose() => base.Dispose();
 

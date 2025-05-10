@@ -1,5 +1,6 @@
 using Core.Interfaces;
 using Infrastructure.Data;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +18,10 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Scoped lifetime: one per request
 builder.Services.AddScoped<IStudentRepository, AppDbContext>();
-
+// Service layer
+builder.Services.AddScoped<StudentHandlers>();
+// If using MediatR
+builder.Services.AddMediatR(typeof(StudentHandlers).Assembly);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

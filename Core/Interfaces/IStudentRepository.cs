@@ -12,5 +12,5 @@ public interface IStudentRepository : IDisposable
     void Remove(Student student);
 
     // Save changes returns number of state entries written to the database
-    Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+    Task<int> SaveChangesAsync();
 }
