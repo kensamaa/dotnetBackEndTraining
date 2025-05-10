@@ -29,7 +29,7 @@ secrets.json
 # Visual Studio
 .vscode/
 *.code-workspace
-*.sln
+
 *.sln.ide/
 *.suo
 *.ntvs*
