@@ -20,8 +20,9 @@ public class AppDbContext : DbContext, IStudentRepository
     public void Remove(Student student)
         => Students.Remove(student);
 
-    public  async Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync()
     {
+        Console.WriteLine("Saving changes...");
         return await base.SaveChangesAsync(default);
     }
 

@@ -50,7 +50,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
-
+app.MapControllers();
 app.UseCors("AllowAll"); // Use "AllowSpecific" for production
 app.UseRouting();
 app.Run();
