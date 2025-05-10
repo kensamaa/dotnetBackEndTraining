@@ -27,7 +27,21 @@ public class AppDbContext : DbContext, IStudentRepository
     }
 
     // Dispose pattern provided by DbContext
-    public void Dispose() => base.Dispose();
+    public override void Dispose() => base.Dispose();
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Enrollment>()
+            .HasKey(e => new { e.StudentId, e.CourseId });
 
+        modelBuilder.Entity<Enrollment>()
+            .HasOne(e => e.Student)
+            .WithMany(s => s.Enrollments)
+            .HasForeignKey(e => e.StudentId);
+
+        modelBuilder.Entity<Enrollment>()
+            .HasOne(e => e.Course)
+            .WithMany(c => c.Enrollments)
+            .HasForeignKey(e => e.CourseId);
+    }
 }
