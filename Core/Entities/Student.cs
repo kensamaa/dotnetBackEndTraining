@@ -7,7 +7,7 @@ public class Student
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
     public DateTime EnrollmentDate { get; set; }
-
+    public virtual List<Enrollment> Enrollments { get; set; } = new();
     // Default constructor for EF
     protected Student() { }
 
