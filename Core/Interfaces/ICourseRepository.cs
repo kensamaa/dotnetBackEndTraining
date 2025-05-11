@@ -1,3 +1,9 @@
+
+
+using Core.Entities;
+
+namespace Core.Interfaces;
+
 public interface ICourseRepository
 {
     IQueryable<Course> GetAll(bool asNoTracking = true);

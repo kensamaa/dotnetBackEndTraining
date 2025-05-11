@@ -2,6 +2,7 @@ using Core.Interfaces;
 using Infrastructure.Data;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Service.Department;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
@@ -23,6 +24,7 @@ builder.Services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 // Service layer
 builder.Services.AddScoped<StudentHandlers>();
+builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 // If using MediatR
 builder.Services.AddMediatR(typeof(StudentHandlers).Assembly);
 

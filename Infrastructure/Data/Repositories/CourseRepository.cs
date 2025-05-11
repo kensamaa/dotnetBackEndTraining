@@ -1,3 +1,5 @@
+using Core.Entities;
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 public class CourseRepository : ICourseRepository

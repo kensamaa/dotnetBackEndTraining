@@ -1,5 +1,5 @@
 using Core.Entities;
-
+namespace Core.Entities;
 public class Enrollment
 {
     public Guid StudentId { get; set; }

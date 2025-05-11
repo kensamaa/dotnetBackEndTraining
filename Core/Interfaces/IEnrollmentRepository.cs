@@ -1,4 +1,8 @@
-public interface IEnrollmentRepository 
+
+using Core.Entities;
+
+namespace Core.Interfaces;
+public interface IEnrollmentRepository
 {
     IQueryable<Enrollment> GetAll(bool asNoTracking = true);
     IQueryable<Enrollment> GetByStudent(Guid studentId, bool asNoTracking = true);
