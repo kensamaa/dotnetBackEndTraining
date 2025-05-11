@@ -15,9 +15,12 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(connectionString));
 
-
 // Scoped lifetime: one per request
-builder.Services.AddScoped<IStudentRepository, AppDbContext>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 // Service layer
 builder.Services.AddScoped<StudentHandlers>();
 // If using MediatR
