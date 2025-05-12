@@ -15,7 +15,7 @@ namespace Api.Controllers
             _service = departmentService;
         }
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public  IActionResult GetAll()
         {
             var list = _service.GetAll();
             return Ok(list);

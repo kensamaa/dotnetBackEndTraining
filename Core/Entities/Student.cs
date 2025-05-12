@@ -17,5 +17,6 @@ public class Student
         FirstName = firstName;
         LastName = lastName;
         EnrollmentDate = enrolled;
+        Enrollments = new List<Enrollment>();
     }
 }
