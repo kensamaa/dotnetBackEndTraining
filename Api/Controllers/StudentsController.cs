@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Service.Students.Queries;
 namespace Api.Controllers;
 [ApiController]
 [Route("api/[controller]")]

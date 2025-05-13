@@ -1,4 +1,5 @@
 using Core.Entities;
 using MediatR;
 
-public record GetStudentByIdQuery(Guid Id) : IRequest<Student?>;
+namespace Service.Students.Queries;
+public record GetAllStudentsQuery() : IRequest<IEnumerable<Student?>>;

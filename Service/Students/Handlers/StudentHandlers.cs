@@ -1,10 +1,9 @@
 using Core.Entities;
 using Core.Interfaces;
-using Infrastructure.Data;
 using MediatR;
+using Service.Students.Queries;
 
 public class StudentHandlers : IRequestHandler<CreateStudentCommand, Guid>,
-    IRequestHandler<GetStudentByIdQuery, Student?>,
     IRequestHandler<GetAllStudentsQuery, IEnumerable<Student>>
 {
     private readonly IStudentRepository _repo;
@@ -21,10 +20,6 @@ public class StudentHandlers : IRequestHandler<CreateStudentCommand, Guid>,
         await _unitOfWork.SaveChangesAsync();
         return student.Id;
     }
-
-    public async Task<Student?> Handle(GetStudentByIdQuery q, CancellationToken ct)
-        => await _repo.GetByIdAsync(q.Id);
-
     public async Task<IEnumerable<Student>> Handle(GetAllStudentsQuery q, CancellationToken ct)
         => _repo.GetAll().ToList();
 }
